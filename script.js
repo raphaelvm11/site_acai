@@ -47,7 +47,7 @@ function addToCart() {
 
     // Adicionar item ao carrinho
     const cartItem = document.createElement("li");
-    cartItem.innerText = ${productTitle} - R$ ${total.toFixed(2)} (Complementos: ${extras.join(", ")} | Adicionais: ${additionalExtras.join(", ")});
+    cartItem.innerText = `${productTitle} - R$ ${total.toFixed(2)} (Complementos: ${extras.join(", ")} | Adicionais: ${additionalExtras.join(", ")})`;
     document.getElementById("cart-items").appendChild(cartItem);
 
     // Atualizar a contagem no ícone do carrinho
@@ -57,8 +57,6 @@ function addToCart() {
     // Voltar à página anterior (opcional, caso você tenha uma função para isso)
     goBack();
 }
-
-
 
 function updateCartCount() {
     document.getElementById("cart-count").innerText = cart.length;
@@ -74,7 +72,7 @@ function openCart() {
     
     cart.forEach((item, index) => {
         let li = document.createElement("li");
-        li.innerText = ${item.name} - Tamanho: ${item.size} - Extras: ${item.extras.join(", ") || "Nenhum"};
+        li.innerText = `${item.name} - Tamanho: ${item.size} - Extras: ${item.extras.join(", ") || "Nenhum"}`;
         
         let removeButton = document.createElement("button");
         removeButton.innerText = "Remover";
@@ -109,19 +107,19 @@ function sendToWhatsApp() {
     const name = document.getElementById("customer-name").value;
     const block = document.getElementById("customer-block").value;
 
-    let message = #pedido ${name} - ${block}\n;
+    let message = `#pedido ${name} - ${block}\n`;
 
     cart.forEach(item => {
-        message += \n*+${item.name}*\n- Complementos:;
+        message += `\n*+${item.name}*\n- Complementos:`;
 
         item.extras.forEach(extra => {
-            message += \n  - ${extra};
+            message += `\n  - ${extra}`;
         });
 
         message += "\n";
     });
 
-    let whatsappUrl = https://wa.me/86999978325?text=${encodeURIComponent(message)};
+    let whatsappUrl = `https://wa.me/86999978325?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
 
