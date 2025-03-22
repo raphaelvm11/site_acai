@@ -9,23 +9,26 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="logo.png" alt="">
+        <img class="logo" src="logo.png" alt="Logo">
         <h2>Meu Carrinho -></h2>
-        <button class="cart-icon" onclick="openCart()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-          </svg> (<span id="cart-count">0</span>)</button>
+        <button class="cart-icon" onclick="openCart()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg> 
+            (<span id="cart-count">0</span>)
+        </button>
     </header>
 
     <div class="container">
-        <!-- Produto Açaí -->
-        <div class="product" onclick="openProduct('Açaí 300 ML', 14.90, 'Delicioso açaí com direito a até 6 Complementos', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi', 'ChocoBall', 'Creme de Chocolate Branco(R$ 1,00)', 'Cereja(R$ 1,00)', 'Bis Oreo(R$ 1,00)'] , 'acai.jpeg')">
+        <!-- Produto Açaí 300 ML -->
+        <div class="product" onclick="openProduct('Açaí 300 ML', 14.90, 'Delicioso açaí com direito a até 6 Complementos', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi', 'ChocoBall', 'Creme de Chocolate Branco(R$ 1,00)', 'Cereja(R$ 1,00)', 'Bis Oreo(R$ 1,00)'], 'acai.jpeg')">
             <img src="acai.jpeg" alt="Açaí">
             <h2>Açaí 300 ML</h2>
             <p>R$ 14,90</p>
         </div>
-        
-        <!-- Produto Açaí -->
-        <div class="product" onclick="openProduct('Açaí 500 ML', 16.90, 'Delicioso açaí com direito a até 8 Complementos', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi', 'ChocoBall', 'Creme de Chocolate Branco(R$ 1,00)', 'Cereja(R$ 1,00)', 'Bis Oreo(R$ 1,00)'] , 'acai.jpeg')">
+
+        <!-- Produto Açaí 500 ML -->
+        <div class="product" onclick="openProduct('Açaí 500 ML', 16.90, 'Delicioso açaí com direito a até 8 Complementos', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi', 'ChocoBall', 'Creme de Chocolate Branco(R$ 1,00)', 'Cereja(R$ 1,00)', 'Bis Oreo(R$ 1,00)'], 'acai.jpeg')">
             <img src="acai.jpeg" alt="Açaí">
             <h2>Açaí 500 ML</h2>
             <p>R$ 16,90</p>
@@ -46,6 +49,7 @@
         </div>
     </div>
 
+    <!-- Página de Produto -->
     <div id="product-page" class="hidden">
         <h1 id="product-title"></h1>
         <div class="product-image-container">
