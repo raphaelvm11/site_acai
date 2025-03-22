@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açaiteria</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <img class="logo" src="logo.png" alt="">
+        <h2>Meu Carrinho -></h2>
+        <button class="cart-icon" onclick="openCart()">🛒 (<span id="cart-count">0</span>)</button>
+    </header>
+
+    <div class="container">
+        <!-- Produto Açaí -->
+        <div class="product" onclick="openProduct('Açaí 300 ML', 14.90, 'Delicioso açaí com acompanhamento opcional', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Banana'], 'acai.jpeg')">
+            <img src="acai.jpeg" alt="Açaí">
+            <h2>Açaí 300 ML</h2>
+            <p>R$ 14,90</p>
+        </div>
+        
+        <!-- Produto Açaí -->
+        <div class="product" onclick="openProduct('Açaí 500 ML', 16.90, 'Delicioso açaí com acompanhamento opcional', 'acai.jpeg', ['Mel', 'Morango', 'Leite condensado'], 'acai.jpg')">
+            <img src="acai.jpeg" alt="Açaí">
+            <h2>Açaí 500 ML</h2>
+            <p>R$ 16,90</p>
+        </div>
+
+        <!-- Produto Batida de Açaí -->
+        <div class="product" onclick="openProduct('Batida de Açaí', 15.00, 'Açaí batido com frutas selecionadas', 'batida.jpeg', ['Mel', 'Morango', 'Leite condensado'], 'batida.jpeg')">
+            <img src="batida.jpeg" alt="Batida de Açaí">
+            <h2>Batida de Açaí</h2>
+            <p>R$ 15,00</p>
+        </div>
+
+        <!-- Produto Combo Açaiteria -->
+        <div class="product" onclick="openProduct('Roleta de Açaí', 29.90, 'Combinação especial de açaí e cupuaçu', 'roleta.avif', ['Paçoca', 'Leite em pó', 'Nutella', 'Mel'], 'roleta.avif')">
+            <img src="roleta.avif" alt="Combo">
+            <h2>Roleta de Açaí</h2>
+            <p>R$ 29,90</p>
+        </div>
+    </div>
+
+    <div id="product-page" class="hidden">
+        <h1 id="product-title"></h1>
+        <div class="product-image-container">
+            <img id="product-image" src="" alt="Produto">
+        </div>
+        <p id="product-description"></p>
+        <h3>Escolha os complementos:</h3>
+        <div id="extras-container" class="extras"></div>
+        <button onclick="addToCart()">Adicionar ao Carrinho</button>
+        <button onclick="goBack()">Voltar</button>
+    </div>
+
+    <!-- Carrinho -->
+    <div id="cart-page" class="hidden">
+        <h1>Carrinho</h1>
+        <ul id="cart-items"></ul>
+
+        <!-- Campos para nome e bloco -->
+        <div>
+            <label for="customer-name">Nome:</label>
+            <input type="text" id="customer-name" placeholder="Digite seu nome" oninput="checkFields()">
+        </div>
+        
+        <div>
+            <label for="customer-block">Bloco:</label>
+            <input type="text" id="customer-block" placeholder="Digite seu bloco" oninput="checkFields()">
+        </div>
+    
+        <!-- Botão para finalizar o pedido -->
+        <button id="finalize-btn" onclick="sendToWhatsApp()" disabled>Finalizar Pedido</button>
+        <button onclick="goBack()">Voltar</button>
+    </div>
+    
+</body>
+</html>
