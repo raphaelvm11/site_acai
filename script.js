@@ -51,7 +51,7 @@ function openCart() {
     
     cart.forEach((item, index) => {
         let li = document.createElement("li");
-        li.innerText = `${item.name} - Tamanho: ${item.size} - Extras: ${item.extras.join(", ") || "Nenhum"}`;
+        li.innerText = `${item.name} - Extras: ${item.extras.join(", ") || "Nenhum"}`;
         
         let removeButton = document.createElement("button");
         removeButton.innerText = "Remover";
