@@ -26,8 +26,7 @@ function openProduct(name, price, description, image, extras, imageFile) {
 function addToCart() {
     let productName = document.getElementById("product-title").innerText;
     let selectedExtras = Array.from(document.querySelectorAll("#extras-container input:checked")).map(input => input.value);
-    let size = document.querySelector('input[name="tamanho"]:checked') ? document.querySelector('input[name="tamanho"]:checked').value : "300ml"; // Obtém o tamanho
-    
+   
     cart.push({ name: productName, size: size, extras: selectedExtras });
     updateCartCount();
     alert("Adicionado ao carrinho!");
