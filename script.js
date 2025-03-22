@@ -27,7 +27,7 @@ function addToCart() {
     let productName = document.getElementById("product-title").innerText;
     let selectedExtras = Array.from(document.querySelectorAll("#extras-container input:checked")).map(input => input.value);
    
-    cart.push({ name: productName, size: size, extras: selectedExtras });
+    cart.push({ name: productName, extras: selectedExtras });
     updateCartCount();
     alert("Adicionado ao carrinho!");
 
