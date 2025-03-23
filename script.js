@@ -44,6 +44,8 @@ function addToCart() {
     });
 
     updateCartCount();
+     // Alertar o usuário
+    alert(`${productTitle} foi adicionado ao carrinho! 🛒`);
     goBack();
 }
 
