@@ -11,37 +11,35 @@
     <header>
         <img class="logo" src="logo.png" alt="">
         <h2>Meu Carrinho -></h2>
-        <button class="cart-icon" onclick="openCart()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-          </svg> (<span id="cart-count">0</span>)</button>
+        <button class="cart-icon" onclick="openCart()">🛒 (<span id="cart-count">0</span>)</button>
     </header>
 
     <div class="container">
         <!-- Produto Açaí -->
-        <div class="product" onclick="openProduct('Açaí 300 ML', 14.90, 'Delicioso açaí com direito a até 6 Complementos', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi', 'ChocoBall', 'Creme de Chocolate Branco(R$ 1,00)', 'Cereja(R$ 1,00)', 'Bis Oreo(R$ 1,00)'] , 'acai.jpeg')">
+        <div class="product" onclick="openProduct('Açaí 300 ML', 14.90, 'Delicioso açaí com acompanhamento opcional', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi'] , 'acai.jpeg')">
             <img src="acai.jpeg" alt="Açaí">
             <h2>Açaí 300 ML</h2>
             <p>R$ 14,90</p>
         </div>
         
         <!-- Produto Açaí -->
-        <div class="product" onclick="openProduct('Açaí 500 ML', 16.90, 'Delicioso açaí com direito a até 8 Complementos', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi', 'ChocoBall', 'Creme de Chocolate Branco(R$ 1,00)', 'Cereja(R$ 1,00)', 'Bis Oreo(R$ 1,00)'] , 'acai.jpeg')">
+        <div class="product" onclick="openProduct('Açaí 500 ML', 16.90, 'Delicioso açaí com acompanhamento opcional', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi'] , 'acai.jpg')">
             <img src="acai.jpeg" alt="Açaí">
             <h2>Açaí 500 ML</h2>
             <p>R$ 16,90</p>
         </div>
 
         <!-- Produto Batida de Açaí -->
-        <div class="product" onclick="openProduct('Batida de Açaí', 15.00, 'Batida de Açaí com direito a até 3 Complementos', 'batida.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi', 'ChocoBall', 'Creme de Chocolate Branco(R$ 1,00)', 'Cereja(R$ 1,00)', 'Bis Oreo(R$ 1,00)'], 'batida.jpeg')">
+        <div class="product" onclick="openProduct('Batida de Açaí', 15.00, 'Açaí batido com frutas selecionadas', 'batida.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi'], 'batida.jpeg')">
             <img src="batida.jpeg" alt="Batida de Açaí">
             <h2>Batida de Açaí</h2>
             <p>R$ 15,00</p>
         </div>
 
         <!-- Produto Combo Açaiteria -->
-        <div class="product" onclick="openProduct('Roleta de Açaí', 29.90, 'Combinação especial de açaí e cupuaçu', 'roleta.avif', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi', 'ChocoBall', 'Creme de Chocolate Branco(Adc R$ 1,00)', 'Cereja(Adc R$ 1,00)', 'Bis Oreo(Adc R$ 1,00)'], 'roleta.avif')">
+        <div class="product" onclick="openProduct('Roleta de Açaí', 29.90, 'Combinação especial de açaí e cupuaçu', 'roleta.avif', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi'], 'roleta.avif')">
             <img src="roleta.avif" alt="Combo">
-            <h2>EM BREVE</h2>
+            <h2>Roleta de Açaí</h2>
             <p>R$ 29,90</p>
         </div>
     </div>
@@ -81,3 +79,5 @@
     
 </body>
 </html>
+
+não estou conseguindo entrar nas paginas dos açaís, qual o problema?
