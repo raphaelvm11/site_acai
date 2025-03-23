@@ -24,17 +24,40 @@ function openProduct(name, price, description, image, extras, imageFile) {
 }
 
 function addToCart() {
-    let productName = document.getElementById("product-title").innerText;
-    let selectedExtras = Array.from(document.querySelectorAll("#extras-container input:checked")).map(input => input.value);
-   
-    cart.push({ name: productName, size: size, extras: selectedExtras });
-    updateCartCount();
-    alert("Adicionado ao carrinho!");
+    const productTitle = document.getElementById("product-title").innerText;
+    const productPrice = parseFloat(document.getElementById("product-price").innerText.replace("R$ ", ""));
+    let extras = [];
+    let additionalExtras = [];
+    let total = productPrice;
 
-    // Voltar para a página inicial
-    document.getElementById("product-page").classList.add("hidden"); // Esconde a página do produto
-    document.querySelector(".container").classList.remove("hidden"); // Mostra a página principal (inicial)
+    // Complementos gratuitos (já existentes no seu código)
+    const extrasContainer = document.getElementById("extras-container");
+    const selectedExtras = extrasContainer.querySelectorAll("input[type='checkbox']:checked");
+    selectedExtras.forEach(extra => {
+        extras.push(extra.value);
+    });
+
+    // Complementos adicionais (R$ 1,00 por item)
+    const additionalExtrasContainer = document.getElementById("additional-extras-container");
+    const selectedAdditionalExtras = additionalExtrasContainer.querySelectorAll("input[type='checkbox']:checked");
+    selectedAdditionalExtras.forEach(extra => {
+        additionalExtras.push(extra.value);
+        total += 1; // Adiciona R$ 1,00 por item adicional
+    });
+
+    // Adicionar item ao carrinho
+    const cartItem = document.createElement("li");
+    cartItem.innerText = ${productTitle} - R$ ${total.toFixed(2)} (Complementos: ${extras.join(", ")} | Adicionais: ${additionalExtras.join(", ")});
+    document.getElementById("cart-items").appendChild(cartItem);
+
+    // Atualizar a contagem no ícone do carrinho
+    const cartCount = document.getElementById("cart-count");
+    cartCount.innerText = parseInt(cartCount.innerText) + 1;
+
+    // Voltar à página anterior (opcional, caso você tenha uma função para isso)
+    goBack();
 }
+
 
 
 function updateCartCount() {
@@ -51,7 +74,7 @@ function openCart() {
     
     cart.forEach((item, index) => {
         let li = document.createElement("li");
-        li.innerText = `${item.name} - Tamanho: ${item.size} - Extras: ${item.extras.join(", ") || "Nenhum"}`;
+        li.innerText = ${item.name} - Tamanho: ${item.size} - Extras: ${item.extras.join(", ") || "Nenhum"};
         
         let removeButton = document.createElement("button");
         removeButton.innerText = "Remover";
@@ -86,19 +109,19 @@ function sendToWhatsApp() {
     const name = document.getElementById("customer-name").value;
     const block = document.getElementById("customer-block").value;
 
-    let message = `#pedido ${name} - ${block}\n`;
+    let message = #pedido ${name} - ${block}\n;
 
     cart.forEach(item => {
-        message += `\n*+${item.name}*\n- Complementos:`;
+        message += \n*+${item.name}*\n- Complementos:;
 
         item.extras.forEach(extra => {
-            message += `\n  - ${extra}`;
+            message += \n  - ${extra};
         });
 
         message += "\n";
     });
 
-    let whatsappUrl = `https://wa.me/86999978325?text=${encodeURIComponent(message)}`;
+    let whatsappUrl = https://wa.me/86999978325?text=${encodeURIComponent(message)};
     window.location.href = whatsappUrl;
 }
 
