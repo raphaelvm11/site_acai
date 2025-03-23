@@ -27,6 +27,8 @@ function openProduct(name, price, description, image, extras) {
 }
 
 function addToCart() {
+    console.log("Função addToCart foi chamada!"); // Teste se a função está rodando
+
     const productTitle = document.getElementById("product-page").getAttribute("data-name");
     const productPrice = parseFloat(document.getElementById("product-page").getAttribute("data-price"));
     let extras = [];
@@ -44,10 +46,14 @@ function addToCart() {
     });
 
     updateCartCount();
-     // Alertar o usuário
-    alert(`${productTitle} foi adicionado ao carrinho! 🛒`);
+
+    console.log("Produto adicionado ao carrinho:", productTitle); // Teste
+    console.log(cart); // Teste para ver o carrinho atualizado
+
+    alert(`${productTitle} foi adicionado ao carrinho! 🛒`); 
     goBack();
 }
+
 
 function updateCartCount() {
     document.getElementById("cart-count").innerText = cart.length;
