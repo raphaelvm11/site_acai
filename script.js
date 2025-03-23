@@ -108,25 +108,22 @@ function sendToWhatsApp() {
         return;
     }
 
-    let message = `#pedido ${name} - ${block}\n`;
+    let message = `#pedido ${name} - ${block}\n\n`;
 
     cart.forEach(item => {
-        message += `\n+${item.name}\n- Complementos:\n`;
+        message += `+${item.name}\n- Complementos:\n`;
 
         if (item.extras.length > 0) {
             item.extras.forEach(extra => {
-                if (extra.includes("(Adc R$ 1,00)")) {
-                    message += `  - ${extra}\n`;
-                } else {
-                    message += `  - ${extra}\n`;
-                }
+                message += `  - ${extra}\n`;
             });
         } else {
             message += "  - Nenhum\n";
         }
+
+        message += "\n"; // Quebra de linha entre produtos
     });
 
     let whatsappUrl = `https://wa.me/86999978325?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
-
