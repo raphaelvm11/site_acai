@@ -15,32 +15,16 @@
     </header>
 
     <div class="container">
-        <!-- Produto Açaí -->
-        <div class="product" onclick="openProduct('Açaí 300 ML', 14.90, 'Delicioso açaí com acompanhamento opcional', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi'] , 'acai.jpeg')">
+        <div class="product" onclick="openProduct('Açaí 300 ML', 14.90, 'Delicioso açaí com acompanhamento opcional', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoim', 'Flocos de Arroz', 'Kiwi'])">
             <img src="acai.jpeg" alt="Açaí">
             <h2>Açaí 300 ML</h2>
             <p>R$ 14,90</p>
         </div>
-        
-        <!-- Produto Açaí -->
-        <div class="product" onclick="openProduct('Açaí 500 ML', 16.90, 'Delicioso açaí com acompanhamento opcional', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi'] , 'acai.jpg')">
+
+        <div class="product" onclick="openProduct('Açaí 500 ML', 16.90, 'Delicioso açaí com acompanhamento opcional', 'acai.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoim', 'Flocos de Arroz', 'Kiwi'])">
             <img src="acai.jpeg" alt="Açaí">
             <h2>Açaí 500 ML</h2>
             <p>R$ 16,90</p>
-        </div>
-
-        <!-- Produto Batida de Açaí -->
-        <div class="product" onclick="openProduct('Batida de Açaí', 15.00, 'Açaí batido com frutas selecionadas', 'batida.jpeg', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi'], 'batida.jpeg')">
-            <img src="batida.jpeg" alt="Batida de Açaí">
-            <h2>Batida de Açaí</h2>
-            <p>R$ 15,00</p>
-        </div>
-
-        <!-- Produto Combo Açaiteria -->
-        <div class="product" onclick="openProduct('Roleta de Açaí', 29.90, 'Combinação especial de açaí e cupuaçu', 'roleta.avif', ['Morango', 'Leite em pó', 'Paçoca', 'Leite Condensado', 'Jujuba', 'Confete', 'Creme de Avelã', 'Amendoin', 'Flocos de Arroz', 'Kiwi'], 'roleta.avif')">
-            <img src="roleta.avif" alt="Combo">
-            <h2>Roleta de Açaí</h2>
-            <p>R$ 29,90</p>
         </div>
     </div>
 
@@ -56,12 +40,10 @@
         <button onclick="goBack()">Voltar</button>
     </div>
 
-    <!-- Carrinho -->
     <div id="cart-page" class="hidden">
         <h1>Carrinho</h1>
         <ul id="cart-items"></ul>
 
-        <!-- Campos para nome e bloco -->
         <div>
             <label for="customer-name">Nome:</label>
             <input type="text" id="customer-name" placeholder="Digite seu nome" oninput="checkFields()">
@@ -71,12 +53,9 @@
             <label for="customer-block">Bloco:</label>
             <input type="text" id="customer-block" placeholder="Digite seu bloco" oninput="checkFields()">
         </div>
-    
-        <!-- Botão para finalizar o pedido -->
+
         <button id="finalize-btn" onclick="sendToWhatsApp()" disabled>Finalizar Pedido</button>
         <button onclick="goBack()">Voltar</button>
     </div>
-    
 </body>
 </html>
-
