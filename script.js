@@ -92,21 +92,31 @@ function sendToWhatsApp() {
     const name = document.getElementById("customer-name").value;
     const block = document.getElementById("customer-block").value;
 
-    let message = `#Pedido ${name} - Bloco ${block}\n`;
+    let message = `#pedido ${name} - ${block}\n`;
 
     cart.forEach(item => {
-        message += `\n*${item.name}* - R$ ${item.price.toFixed(2)}`;
-        if (item.extras.length > 0) {
-            message += `\n- Complementos: ${item.extras.join(", ")}`;
+        message += `\n+${item.name}\n- Complementos:`;
+        
+        let adicionais = [];
+
+        item.extras.forEach(extra => {
+            if (extra.includes("(Adc R$ 1,00)")) {
+                adicionais.push(extra);
+            } else {
+                message += `\n  - ${extra}`;
+            }
+        });
+
+        if (adicionais.length > 0) {
+            adicionais.forEach(adicional => {
+                message += `\n  - ${adicional}`;
+            });
         }
+
+        message += "\n";
     });
 
     let whatsappUrl = `https://wa.me/86999978325?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
 
-function goBack() {
-    document.getElementById("product-page").classList.add("hidden");
-    document.getElementById("cart-page").classList.add("hidden");
-    document.querySelector(".container").classList.remove("hidden");
-}
