@@ -96,22 +96,27 @@ function sendToWhatsApp() {
 
     cart.forEach(item => {
         message += `\n+${item.name}\n- Complementos:`;
-        
-        let adicionais = [];
+
+        let complementosGratuitos = [];
+        let complementosPagos = [];
 
         item.extras.forEach(extra => {
             if (extra.includes("(Adc R$ 1,00)")) {
-                adicionais.push(extra);
+                complementosPagos.push(extra);
             } else {
-                message += `\n  - ${extra}`;
+                complementosGratuitos.push(extra);
             }
         });
 
-        if (adicionais.length > 0) {
-            adicionais.forEach(adicional => {
-                message += `\n  - ${adicional}`;
-            });
-        }
+        // Adiciona os complementos gratuitos primeiro
+        complementosGratuitos.forEach(extra => {
+            message += `\n  - ${extra}`;
+        });
+
+        // Adiciona os complementos pagos no formato correto
+        complementosPagos.forEach(extra => {
+            message += `\n  - ${extra} (Adc R$ 1,00)`;
+        });
 
         message += "\n";
     });
@@ -119,4 +124,3 @@ function sendToWhatsApp() {
     let whatsappUrl = `https://wa.me/86999978325?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
-
