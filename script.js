@@ -20,15 +20,13 @@ function openProduct(name, price, description, image, extras) {
 
     document.getElementById("product-page").classList.remove("hidden");
     document.querySelector(".container").classList.add("hidden");
+    document.getElementById("cart-page").classList.add("hidden");
 
-    // Armazenar nome e preço do produto para uso posterior
     document.getElementById("product-page").setAttribute("data-name", name);
     document.getElementById("product-page").setAttribute("data-price", price);
 }
 
 function addToCart() {
-    console.log("Função addToCart foi chamada!"); // Teste se a função está rodando
-
     const productTitle = document.getElementById("product-page").getAttribute("data-name");
     const productPrice = parseFloat(document.getElementById("product-page").getAttribute("data-price"));
     let extras = [];
@@ -47,13 +45,12 @@ function addToCart() {
 
     updateCartCount();
 
-    console.log("Produto adicionado ao carrinho:", productTitle); // Teste
-    console.log(cart); // Teste para ver o carrinho atualizado
+    setTimeout(() => {
+        alert(`${productTitle} foi adicionado ao carrinho! 🛒`);
+    }, 200);
 
-    alert(`${productTitle} foi adicionado ao carrinho! 🛒`); 
     goBack();
 }
-
 
 function updateCartCount() {
     document.getElementById("cart-count").innerText = cart.length;
@@ -88,6 +85,12 @@ function removeFromCart(index) {
     openCart();
 }
 
+function goBack() {
+    document.getElementById("product-page").classList.add("hidden");
+    document.getElementById("cart-page").classList.add("hidden");
+    document.querySelector(".container").classList.remove("hidden");
+}
+
 function checkFields() {
     const name = document.getElementById("customer-name").value;
     const block = document.getElementById("customer-block").value;
@@ -103,30 +106,7 @@ function sendToWhatsApp() {
     let message = `#pedido ${name} - ${block}\n`;
 
     cart.forEach(item => {
-        message += `\n+${item.name}\n- Complementos:`;
-
-        let complementosGratuitos = [];
-        let complementosPagos = [];
-
-        item.extras.forEach(extra => {
-            if (extra.includes("(Adc R$ 1,00)")) {
-                complementosPagos.push(extra);
-            } else {
-                complementosGratuitos.push(extra);
-            }
-        });
-
-        // Adiciona os complementos gratuitos primeiro
-        complementosGratuitos.forEach(extra => {
-            message += `\n  - ${extra}`;
-        });
-
-        // Adiciona os complementos pagos no formato correto
-        complementosPagos.forEach(extra => {
-            message += `\n  - ${extra} (Adc R$ 1,00)`;
-        });
-
-        message += "\n";
+        message += `\n+${item.name}\n- Complementos: ${item.extras.join(", ") || "Nenhum"}\n`;
     });
 
     let whatsappUrl = `https://wa.me/86999978325?text=${encodeURIComponent(message)}`;
