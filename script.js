@@ -100,15 +100,33 @@ function checkFields() {
 }
 
 function sendToWhatsApp() {
-    const name = document.getElementById("customer-name").value;
-    const block = document.getElementById("customer-block").value;
+    const name = document.getElementById("customer-name").value.trim();
+    const block = document.getElementById("customer-block").value.trim();
+
+    if (!name || !block) {
+        alert("Por favor, preencha nome e bloco antes de finalizar o pedido.");
+        return;
+    }
 
     let message = `#pedido ${name} - ${block}\n`;
 
     cart.forEach(item => {
-        message += `\n+${item.name}\n- Complementos: ${item.extras.join(", ") || "Nenhum"}\n`;
+        message += `\n+${item.name}\n- Complementos:\n`;
+
+        if (item.extras.length > 0) {
+            item.extras.forEach(extra => {
+                if (extra.includes("(Adc R$ 1,00)")) {
+                    message += `  - ${extra}\n`;
+                } else {
+                    message += `  - ${extra}\n`;
+                }
+            });
+        } else {
+            message += "  - Nenhum\n";
+        }
     });
 
     let whatsappUrl = `https://wa.me/86999978325?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
+
