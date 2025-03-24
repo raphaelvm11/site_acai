@@ -124,6 +124,6 @@ function sendToWhatsApp() {
         message += "\n"; // Quebra de linha entre produtos
     });
 
-    let whatsappUrl = `https://wa.me/86999978325?text=${encodeURIComponent(message)}`;
+    let whatsappUrl = `https://wa.me/86994058922?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappUrl;
 }
